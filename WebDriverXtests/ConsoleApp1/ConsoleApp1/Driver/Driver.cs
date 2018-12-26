@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 
-namespace ConsoleApp1.Driver
+namespace ConsoleAppX.Driver
 {
     class Driver
     {

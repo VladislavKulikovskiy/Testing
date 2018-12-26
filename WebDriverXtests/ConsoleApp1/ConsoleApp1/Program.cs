@@ -11,7 +11,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 
-namespace ConsoleApp1
+namespace ConsoleAppX
 {
     [TestFixture]
     class Program

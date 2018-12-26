@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Tests
+namespace ConsoleAppX.Tests
 {
     [TestFixture]
     public class Tests

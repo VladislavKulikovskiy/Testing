@@ -9,7 +9,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Threading;
 
-namespace ConsoleApp1.Pages
+namespace ConsoleAppX.Pages
 {
     class SelectPage
     {

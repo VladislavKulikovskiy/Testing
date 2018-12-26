@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace ConsoleApp1.Steps
+namespace ConsoleAppX.Steps
 {
     class Steps
     {
