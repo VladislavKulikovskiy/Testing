@@ -47,11 +47,16 @@ namespace ConsoleAppX.Pages
         [FindsBy(How = How.ClassName, Using = "totalPrice")]
         private IWebElement totalPrice;
 
-        
+        [FindsBy(How = How.ClassName, Using = "sb-booker-type-checkbox")]
+        private IWebElement travelForWork;
 
-        public HotelsPage(IWebDriver driver)
+        [FindsBy(How = How.ClassName, Using = "icon_filtercategory_container")]
+        private IWebElement workInfo;
+
+        public HotelsPage(IWebDriver driver, WebDriverWait Pause)
         {
             this.driver = driver;
+            this.pause = Pause;
             PageFactory.InitElements(driver, this);
         }
 
@@ -62,65 +67,91 @@ namespace ConsoleAppX.Pages
 
         public void clickOnHat()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(hat));
             hat.Click();
         }
 
         public void clickOnDestinationPlace()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(destinationPlace));
             destinationPlace.Click();
         }
 
         public void setDestinationPlace(string place)
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(destinationPlace));
             destinationPlace.SendKeys(place);
         }
 
         public void clickOnNumOfAdults()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(numOfAdults));
             numOfAdults.Click();
         }
 
         public void SetNumOfAdults(int index)
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(numOfAdults));
             var selectelement = new SelectElement(numOfAdults);
             selectelement.SelectByIndex(index);
         }
 
         public void clickOnNumOfChildren()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(numOfAdults));
             numOfAdults.Click();
         }
 
         public void SetNumOfChildren(int index)
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(numOfChildren));
             var selectelement = new SelectElement(numOfChildren);
             selectelement.SelectByIndex(index);
         }
 
         public void ClickOnSearchButton()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(searchButton));
             searchButton.Click();
         }
 
         public void ClickOnDateField()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(dateField));
             dateField.Click();
         }
 
         public void ClickOnInnerDay()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(innerDay));
             innerDay.Click();
         }
 
         public void AAAAAAAAAAA()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(fuckinghelperPLSDIE));
             fuckinghelperPLSDIE.Click();
 
         }
 
         public string getTotalPrice()
         {
+            pause.Until(ExpectedConditions.ElementToBeClickable(totalPrice));
             return totalPrice.Text;
         }
+
+        public void clickTravelForWork()
+        {
+            pause.Until(ExpectedConditions.ElementToBeClickable(travelForWork));
+            travelForWork.Click();
+        }
+
+        public string getWorkInfo()
+        {
+            pause.Until(ExpectedConditions.ElementToBeClickable(workInfo));
+            return workInfo.Text;
+        }
+
+        
     }
 }

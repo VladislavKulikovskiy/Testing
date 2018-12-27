@@ -38,7 +38,7 @@ namespace ConsoleAppX.Tests
             steps.SearchPageSetOriginDate(firstDate);
             steps.SearchPageSetDestinationDate(secondDate);
             steps.ClickOnSearchButton();
-            Thread.Sleep(5000);
+            //Thread.Sleep(5000);
             Assert.AreEqual("Please check the date you entered.", steps.GetErrorMeassage());
         }
 
@@ -51,13 +51,9 @@ namespace ConsoleAppX.Tests
             steps.StartSearch();
             steps.GoToSelectPage();
 
-            //steps.SearchPageSetOrigin(firstDate);
-            //steps.SearchPageSetDestination(secondDate);
-
             steps.ClickOnPassengerType(2);
-            Thread.Sleep(5000);
             steps.ClickOnSearchButton();
-            Thread.Sleep(5000);
+
             Assert.AreEqual("Call to book a minor (age 5-15) traveling alone.", steps.GetErrorMeassageAboutPassengeraAge());
         }
 
@@ -68,16 +64,12 @@ namespace ConsoleAppX.Tests
             steps.GoToSelectPage();
 
             steps.SearchPageSetOrigin("MIA");
-            Thread.Sleep(5000);
             steps.SearchPageSetDestination("MIA");
-            Thread.Sleep(5000);
             steps.ClickOnSearchButton();
-            Thread.Sleep(5000);
 
             Assert.AreEqual("Departure and arrival cities must be different.", steps.GetErrorMeassageFrom());
             Assert.AreEqual("Departure and arrival cities must be different.", steps.GetErrorMeassageDestination());
             Assert.AreEqual(steps.GetErrorMeassageFrom(), steps.GetErrorMeassageDestination());
-            //Assert.AreEqual("Call to book a minor (age 5-15) traveling alone.", steps.GetErrorMeassageAboutPassengeraAge());
         }
 
 
@@ -90,19 +82,12 @@ namespace ConsoleAppX.Tests
             steps.GoToSelectPage();
 
             steps.SearchPageSetOrigin("MHP");
-            Thread.Sleep(1000);
             steps.SearchPageSetOriginDate(firstDate);
-            Thread.Sleep(1000);
             steps.SetOriginalTravelTime(1);
-            Thread.Sleep(1000);
             steps.SearchPageSetDestination("BLI");
-            Thread.Sleep(1000);
             steps.SearchPageSetDestinationDate(firstDate);
-            Thread.Sleep(1000);
             steps.SetDestinationTravelTime(1);
-            Thread.Sleep(1000);
             steps.ClickOnSearchButton();
-            Thread.Sleep(5000);
 
             Assert.AreEqual("We didn't find a match. Please choose different search options.", steps.GetErrorMeassageNotFound());
         }
@@ -113,27 +98,42 @@ namespace ConsoleAppX.Tests
             steps.StartSearch();
             steps.GoToHotelsPage();
 
-            Thread.Sleep(1000);
-
             steps.SetDestinationPlace("Majorca, Spain");
-            Thread.Sleep(1000);
             steps.makeAvailable();
-            Thread.Sleep(1000);
             steps.SetNumOFAdults(1);
-            Thread.Sleep(1000);
             steps.SetNumOFChildren(1);
-            Thread.Sleep(1000);
             steps.SearchButtonClick();
-            Thread.Sleep(3000);
-
             steps.SetStartDate();
-            Thread.Sleep(1000);
             steps.SearchButtonClick();
-
 
             Assert.True(steps.getTotalPrice().Contains("Цена за 2 взрослых и 1 ребенка на 1 ночь"));
+        }
 
+        [Test]
+        public void elevenTest()
+        {
+            steps.StartSearch();
+            steps.GoToSelectPage();
+
+            string firstDate = Utils.Utils.getFutureDate(-5);
+            steps.SearchPageSetOriginDate(firstDate);
+            steps.ClickOnSearchButton();
+
+            Assert.AreEqual("Please check the date you entered.", steps.getFirstDateError());
+        }
+
+        [Test]
+        public void nineTest()
+        {
+            steps.StartSearch();
+            steps.GoToHotelsPage();
+            steps.SetDestinationPlace("Majorca, Spain");
+            steps.makeAvailable();
+            steps.TravelForWorkClick();
+            steps.SearchButtonClick();
+
+            Assert.AreEqual("Популярно для деловых поездок", steps.getWorkInfo());
         }
 
     }
-}
+ }
