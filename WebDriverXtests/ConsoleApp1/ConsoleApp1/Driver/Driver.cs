@@ -21,7 +21,9 @@ namespace ConsoleAppX.Driver
             {
                 driver = new FirefoxDriver();
                 driver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(30));
+                driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(150);
                 driver.Manage().Window.Maximize();
+
             }
 
             return driver;
