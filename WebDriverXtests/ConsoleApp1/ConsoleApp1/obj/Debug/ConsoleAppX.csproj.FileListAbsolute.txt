@@ -10,7 +10,6 @@ E:\4 КУРС 1 СЕМ\TESTING\WebDriverXtests\ConsoleApp1\ConsoleApp1\bin\Debug
 E:\4 КУРС 1 СЕМ\TESTING\WebDriverXtests\ConsoleApp1\ConsoleApp1\bin\Debug\nunit.framework.xml
 E:\4 КУРС 1 СЕМ\TESTING\WebDriverXtests\ConsoleApp1\ConsoleApp1\bin\Debug\WebDriver.xml
 E:\4 КУРС 1 СЕМ\TESTING\WebDriverXtests\ConsoleApp1\ConsoleApp1\bin\Debug\WebDriver.Support.xml
-E:\4 КУРС 1 СЕМ\TESTING\WebDriverXtests\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleAppX.csprojAssemblyReference.cache
 E:\4 КУРС 1 СЕМ\TESTING\WebDriverXtests\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleAppX.csproj.CoreCompileInputs.cache
 E:\4 КУРС 1 СЕМ\TESTING\WebDriverXtests\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleAppX.csproj.CopyComplete
 E:\4 КУРС 1 СЕМ\TESTING\WebDriverXtests\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleAppX.exe.config

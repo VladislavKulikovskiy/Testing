@@ -107,33 +107,33 @@ namespace ConsoleAppX.Tests
             Assert.AreEqual("We didn't find a match. Please choose different search options.", steps.GetErrorMeassageNotFound());
         }
 
-        //[Test]
-        //public void SevenTest()
-        //{
-        //    steps.StartSearch();
-        //    steps.GoToHotelsPage();
+        [Test]
+        public void SevenTest()
+        {
+            steps.StartSearch();
+            steps.GoToHotelsPage();
 
-        //    Thread.Sleep(1000);
+            Thread.Sleep(1000);
 
-        //    steps.SetDestinationPlace("Majorca, Spain");
-        //    Thread.Sleep(1000);
-        //    steps.makeAvailable();
-        //    Thread.Sleep(1000);
-        //    steps.SetNumOFAdults(1);
-        //    Thread.Sleep(1000);
-        //    steps.SetNumOFChildren(1);
-        //    Thread.Sleep(1000);
-        //    steps.SearchButtonClick();
-        //    Thread.Sleep(3000);
+            steps.SetDestinationPlace("Majorca, Spain");
+            Thread.Sleep(1000);
+            steps.makeAvailable();
+            Thread.Sleep(1000);
+            steps.SetNumOFAdults(1);
+            Thread.Sleep(1000);
+            steps.SetNumOFChildren(1);
+            Thread.Sleep(1000);
+            steps.SearchButtonClick();
+            Thread.Sleep(3000);
 
-        //    steps.SetStartDate();
-        //    Thread.Sleep(1000);
-        //    steps.SearchButtonClick();
+            steps.SetStartDate();
+            Thread.Sleep(1000);
+            steps.SearchButtonClick();
 
 
-        //    Assert.True(steps.getTotalPrice().Contains("Цена за 2 взрослых и 1 ребенка на 1 ночь"));
+            Assert.True(steps.getTotalPrice().Contains("Цена за 2 взрослых и 1 ребенка на 1 ночь"));
 
-        //}
+        }
 
     }
 }
