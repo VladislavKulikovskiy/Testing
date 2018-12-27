@@ -17,6 +17,11 @@ namespace ConsoleAppX.Pages
         private IWebDriver driver;
         private WebDriverWait pause;
 
+
+
+        [FindsBy(How = How.ClassName, Using = "header")]
+        private IWebElement headerError;
+
         [FindsBy(How = How.Id, Using = "segments0.travelDate")]
         private IWebElement travelDate;
 
@@ -72,6 +77,12 @@ namespace ConsoleAppX.Pages
         public void OpenPage()
         {
             driver.Navigate().GoToUrl(BASE_URL);
+        }
+
+        public string getHeaderErrorMessage()
+        {
+            pause.Until(ExpectedConditions.ElementToBeClickable(headerError));
+            return headerError.Text;
         }
 
         public string getErrorMessage()

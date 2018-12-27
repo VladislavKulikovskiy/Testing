@@ -35,6 +35,12 @@ namespace ConsoleAppX.Steps
             Pages.MainPage mainPage = new Pages.MainPage(driver);
             mainPage.goToSelectPage();
         }
+        
+        public string getHeaderErrorMess()
+        {
+            Pages.SelectPage selectPage = new Pages.SelectPage(driver, pause);
+            return selectPage.getHeaderErrorMessage();
+        }
 
         public void SearchPageSetOriginDate(string firstDate)
         {
@@ -158,7 +164,6 @@ namespace ConsoleAppX.Steps
         {
             Pages.HotelsPage hotelPage = new Pages.HotelsPage(driver, pause);
             hotelPage.ClickOnDateField();
-            //Thread.Sleep(1000);
             hotelPage.AAAAAAAAAAA();
             hotelPage.ClickOnDateField();
             hotelPage.ClickOnInnerDay();

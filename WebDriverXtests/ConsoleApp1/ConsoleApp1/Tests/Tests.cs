@@ -25,9 +25,19 @@ namespace ConsoleAppX.Tests
         //    steps.CloseBrowser();
         //}
 
+        [Test]
+        public void destinationNotPassed()
+        {
+            steps.StartSearch();
+            steps.GoToSelectPage();
+            steps.ClickOnSearchButton();
+
+            Assert.AreEqual("Arrival city/airport is required.", steps.GetErrorMeassageDestination());
+        }
+
 
         [Test]
-        public void SecondTest()
+        public void returnDateLessDepartDate()
         {
             string firstDate = Utils.Utils.getFutureDate(10);
             string secondDate = Utils.Utils.getFutureDate(5);
@@ -38,16 +48,13 @@ namespace ConsoleAppX.Tests
             steps.SearchPageSetOriginDate(firstDate);
             steps.SearchPageSetDestinationDate(secondDate);
             steps.ClickOnSearchButton();
-            //Thread.Sleep(5000);
+
             Assert.AreEqual("Please check the date you entered.", steps.GetErrorMeassage());
         }
 
         [Test]
-        public void ThirdTest()
+        public void childrenPassenger()
         {
-            string firstDate = Utils.Utils.getFutureDate(10);
-            string secondDate = Utils.Utils.getFutureDate(5);
-
             steps.StartSearch();
             steps.GoToSelectPage();
 
@@ -58,7 +65,7 @@ namespace ConsoleAppX.Tests
         }
 
         [Test]
-        public void FourTest()
+        public void originAndDestinationTheSamePlace()
         {
             steps.StartSearch();
             steps.GoToSelectPage();
@@ -74,7 +81,7 @@ namespace ConsoleAppX.Tests
 
 
         [Test]
-        public void FiveTest()
+        public void wayNotExist()
         {
             string firstDate = Utils.Utils.getFutureDate(0);
 
@@ -93,7 +100,18 @@ namespace ConsoleAppX.Tests
         }
 
         [Test]
-        public void SevenTest()
+        public void wrongDestination()
+        {
+            steps.StartSearch();
+            steps.GoToSelectPage();
+            steps.SearchPageSetDestination("VVV");
+            steps.ClickOnSearchButton();
+
+            Assert.AreEqual("We couldn't find the city/airport you entered.", steps.GetErrorMeassageDestination());
+        }
+
+        [Test]
+        public void hotelsToFamily()
         {
             steps.StartSearch();
             steps.GoToHotelsPage();
@@ -110,7 +128,7 @@ namespace ConsoleAppX.Tests
         }
 
         [Test]
-        public void elevenTest()
+        public void pastDate()
         {
             steps.StartSearch();
             steps.GoToSelectPage();
@@ -123,7 +141,7 @@ namespace ConsoleAppX.Tests
         }
 
         [Test]
-        public void nineTest()
+        public void businessTrip()
         {
             steps.StartSearch();
             steps.GoToHotelsPage();
@@ -135,5 +153,19 @@ namespace ConsoleAppX.Tests
             Assert.AreEqual("Популярно для деловых поездок", steps.getWorkInfo());
         }
 
+        [Test]
+        public void dateInLongFuture()
+        {
+            string firstDate = Utils.Utils.getFutureDate(365);
+
+            steps.StartSearch();
+            steps.GoToSelectPage();
+            steps.SearchPageSetDestinationDate(firstDate);
+            steps.ClickOnSearchButton();
+
+            Assert.IsTrue(steps.GetErrorMeassage().Contains("You can book this date beginning"));
+        }
+
+
     }
- }
+}
