@@ -17,7 +17,7 @@ namespace ConsoleAppX.Driver
 
         private Driver() { }
 
-        public static IWebDriver GetInstance()
+        private static IWebDriver GetInstance()
         {
             if (driver == null)
             {
